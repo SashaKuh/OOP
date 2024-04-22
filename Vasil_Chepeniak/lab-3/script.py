@@ -26,10 +26,3 @@ while count < 5:
     print(count)
     count += 1
 
-
-a = 'vasil'
-
-if len(a) < 10:
-    print('yes')
-else:
-    print('no')
