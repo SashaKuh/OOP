@@ -16,7 +16,7 @@ class Car:
         return self.description
 
 # Створюємо декілька об'єктів на основі класу
-car1 = Car("Toyota", "Corolla", 2018)
+car1 = Car("Toyota", "Corolla", 2017)
 car2 = Car("Tesla", "Model S", 2022)
 
 # Викликаємо метод для генерації опису об'єкта
