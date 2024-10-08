@@ -93,4 +93,3 @@ classDiagram
 
 ---
 
-[Джерело](https://gptonline.ai/ru/)
