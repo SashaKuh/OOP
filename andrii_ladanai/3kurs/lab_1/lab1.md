@@ -29,3 +29,32 @@
 
 ## Висновки.
 У ході виконання лабораторної роботи з вивчення патерна "Фабричний метод" було розглянуто важливий концепт об'єктно-орієнтованого програмування. Цей патерн визначає загальний інтерфейс для створення об'єктів, але дозволяє підкласам вирішувати, який саме клас об'єкта створювати. Основна ідея полягає в тому, щоб виокремити процес створення об'єкта в окремий клас-фабрику.
+
+```mermaid
+classDiagram
+    class Vehicle {
+        + id: str
+        + owner_name: str
+        + amount: str
+        + section_number: str
+        + __init__(id, owner_name, amount, section_number)
+    }
+
+    class Car {
+        + car_model: str
+        + __init__(id, owner_name, car_model, amount, section_number)
+        + from_input() : Car
+    }
+
+    class Motorcycle {
+        + motorcycle_model: str
+        + __init__(id, owner_name, motorcycle_model, amount, section_number)
+        + from_input() : Motorcycle
+    }
+
+    class VehicleFactory {
+        + create_vehicle(vehicle_type: str) : Vehicle
+    }
+
+    Vehicle <|-- Car
+    Vehicle <|-- Motorcycle
