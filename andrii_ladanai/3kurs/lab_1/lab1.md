@@ -63,7 +63,7 @@ classDiagram
 
     Vehicle <|-- Car
     Vehicle <|-- Motorcycle
-
+```
 
 ## Висновок
 
