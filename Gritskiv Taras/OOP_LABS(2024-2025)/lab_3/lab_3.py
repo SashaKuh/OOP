@@ -1,32 +1,31 @@
-# Компонент
-class Pizza:
-    def cost(self):
-        return 10
+class Iterator:
+    def __init__(self, collection):
+        self._collection = collection
+        self._index = 0
 
-# Базовий декоратор
-class PizzaDecorator(Pizza):
-    def __init__(self, pizza):
-        self._pizza = pizza
+    def __next__(self):
+        try:
+            value = self._collection[self._index]
+            self._index += 1
+            return value
+        except IndexError:
+            raise StopIteration
 
-    def cost(self):
-        return self._pizza.cost()
+class Collection:
+    def __init__(self):
+        self._items = []
 
-# Декоратор: додавання сиру
-class CheeseDecorator(PizzaDecorator):
-    def cost(self):
-        return self._pizza.cost() + 5
+    def __iter__(self):
+        return Iterator(self._items)
 
-# Декоратор: додавання бекону
-class BaconDecorator(PizzaDecorator):
-    def cost(self):
-        return self._pizza.cost() + 7
+    def add(self, item):
+        self._items.append(item)
 
 # Використання
-pizza = Pizza()
-print("Базова піца:", pizza.cost())
+collection = Collection()
+collection.add("A")
+collection.add("B")
+collection.add("C")
 
-pizza_with_cheese = CheeseDecorator(pizza)
-print("Піца з сиром:", pizza_with_cheese.cost())
-
-pizza_with_cheese_and_bacon = BaconDecorator(pizza_with_cheese)
-print("Піца з сиром і беконом:", pizza_with_cheese_and_bacon.cost())
+for item in collection:
+    print(item)
