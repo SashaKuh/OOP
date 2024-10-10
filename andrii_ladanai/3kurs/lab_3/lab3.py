@@ -27,26 +27,22 @@ class Store(Subject):
     змінюється (наприклад, коли є нові акції).
     """
 
-    _offers: List[str] = []
+    _offers: List[str] = ["Знижка 10% на всі товари!", "Купуйте 2, отримуйте 1 безкоштовно!"]  # Початкові акції
     _observers: List[Observer] = []
 
     def attach(self, observer: Observer) -> None:
-        print("Магазин: Спостерігача підключено.")
+        print(f"Магазин: Спостерігача '{observer.name}' підключено.")
         self._observers.append(observer)
+        self.notify(observer)
 
     def detach(self, observer: Observer) -> None:
         self._observers.remove(observer)
-        print("Магазин: Спостерігача відключено.")
+        print(f"Магазин: Спостерігача '{observer.name}' відключено.")
 
-    def notify(self) -> None:
-        print("Магазин: Повідомлення спостерігачів про нові акції...")
-        for observer in self._observers:
-            observer.update(self)
-
-    def add_offer(self, offer: str) -> None:
-        self._offers.append(offer)
-        print(f"Магазин: Додано нову акцію: {offer}")
-        self.notify()
+    def notify(self, observer: Observer) -> None:
+        """Повідомляє одного спостерігача одразу після підписки."""
+        print(f"Магазин: Повідомлення для {observer.name}...")
+        observer.update(self)
 
 
 class Observer(ABC):
@@ -74,24 +70,42 @@ class Customer(Observer):
             print(f"{self.name}: Немає нових акцій.")
 
 
-if __name__ == "__main__":
-    # Код клієнта
-
+def main():
     store = Store()
+    customers = {}
 
-    # Створюємо клієнтів (спостерігачів)
-    customer_a = Customer("Анна")
-    store.attach(customer_a)
+    while True:
+        print("\nВиберіть дію:")
+        print("1 - Підписатися на розсилку акцій")
+        print("2 - Відписатися від розсилки")
+        print("3 - Вийти")
 
-    customer_b = Customer("Богдан")
-    store.attach(customer_b)
+        choice = input("Ваш вибір: ")
 
-    # Додаємо акції
-    store.add_offer("Знижка 20% на всі товари!")
-    store.add_offer("Безкоштовна доставка при замовленні від 500 грн!")
+        if choice == "1":
+            name = input("Введіть ваше ім'я для підписки: ")
+            if name not in customers:
+                customer = Customer(name)
+                customers[name] = customer
+                store.attach(customer)  # Підписати користувача і одразу повідомити про акції
+            else:
+                print(f"{name} вже підписаний на розсилку.")
 
-    # Відключаємо одного зі спостерігачів
-    store.detach(customer_a)
+        elif choice == "2":
+            name = input("Введіть ваше ім'я для відписки: ")
+            if name in customers:
+                store.detach(customers[name])
+                del customers[name]
+            else:
+                print(f"{name} не знайдено серед підписників.")
 
-    # Додаємо ще одну акцію
-    store.add_offer("Купуйте 1, отримуйте 1 безкоштовно!")
+        elif choice == "3":
+            print("Завершення програми.")
+            break
+
+        else:
+            print("Невірний вибір. Спробуйте ще раз.")
+
+
+if __name__ == "__main__":
+    main()
