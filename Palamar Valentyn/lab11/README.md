@@ -71,7 +71,6 @@
 ```mermaid
 classDiagram
     class Animal {
-        <<abstract>>
         +sound() void
     }
     
