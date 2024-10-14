@@ -1,29 +1,23 @@
-# Клас видавця (Publisher)
 class Publisher:
     def __init__(self):
-        self._subscribers = []  # Список підписників
+        self._subscribers = [] 
 
     def subscribe(self, subscriber):
-        """Додає підписника до списку."""
         self._subscribers.append(subscriber)
 
     def unsubscribe(self, subscriber):
-        """Видаляє підписника зі списку."""
         self._subscribers.remove(subscriber)
 
     def notify(self, message):
-        """Сповіщає всіх підписників про зміну стану."""
         for subscriber in self._subscribers:
             subscriber.update(message)
 
 
-# Інтерфейс підписника (Subscriber) з методом оновлення
 class Subscriber:
     def update(self, message):
         raise NotImplementedError("Subclasses must implement update method")
 
 
-# Конкретний клас підписника, що реалізує інтерфейс Subscriber
 class EmailSubscriber(Subscriber):
     def __init__(self, name):
         self.name = name
@@ -39,24 +33,16 @@ class SMSSubscriber(Subscriber):
     def update(self, message):
         print(f"SMS to {self.phone_number}: {message}")
 
-
-# Використання паттерна Наблюдатель
-# Створюємо видавця
 store = Publisher()
 
-# Створюємо кілька підписників
-email_subscriber = EmailSubscriber("customer@example.com")
+email_subscriber = EmailSubscriber("sasha@gmail.com")
 sms_subscriber = SMSSubscriber("+1234567890")
 
-# Підписуємо підписників на сповіщення
 store.subscribe(email_subscriber)
 store.subscribe(sms_subscriber)
 
-# Сповіщаємо підписників про новий товар
 store.notify("Новий товар доступний в магазині!")
 
-# Відписуємо одного з підписників
 store.unsubscribe(sms_subscriber)
 
-# Сповіщаємо залишених підписників
 store.notify("Інше повідомлення для залишених підписників.")
