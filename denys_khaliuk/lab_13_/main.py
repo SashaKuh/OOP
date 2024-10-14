@@ -9,7 +9,7 @@ class AudioSystem:
         print("Аудіо система вимкнена.")
 
 
-# Підсистема: Відеоплеєр
+#Відеоплеєр
 class VideoPlayer:
     def on(self):
         print("Відеоплеєр увімкнений.")
@@ -21,7 +21,7 @@ class VideoPlayer:
         print("Відеоплеєр вимкнений.")
 
 
-# Підсистема: Субтитри
+#Субтитри
 class Subtitles:
     def on(self):
         print("Субтитри увімкнені.")
@@ -59,8 +59,6 @@ subtitles = Subtitles()
 
 home_theater = HomeTheaterFacade(audio_system, video_player, subtitles)
 
-# Включення фільму
 home_theater.watch_movie("Інтерстеллар")
 
-# Завершення фільму
 home_theater.end_movie()
