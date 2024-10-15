@@ -26,47 +26,56 @@
     - скласти його UML-діяграму.
 ---
 
-### Завдання 1
+### Поведінкові шаблони
 
-Поведінкові шаблони проектування — це категорія шаблонів, які зосереджуються на ефективній взаємодії між об'єктами і визначенні способів передачі відповідальностей між ними. Вони допомагають спростити складність системи, чітко розподіляючи поведінку між об'єктами та визначаючи, як ці об'єкти повинні взаємодіяти.
+Це категорія шаблонів, які зосереджуються на ефективній взаємодії між об'єктами і визначенні способів передачі відповідальностей між ними. Вони допомагають спростити складність системи, чітко розподіляючи поведінку між об'єктами та визначаючи, як ці об'єкти повинні взаємодіяти.
 
-### Завдання 2
+### Шаблон 'Відвідувач'
 
 Шаблон "Відвідувач"  — це поведінковий шаблон проектування, який дозволяє додавати нові операції до об'єктів без зміни їх класів. Це досягається шляхом визначення нового класу, відвідувача, який реалізує ці нові операції. Шаблон корисний у ситуаціях, коли потрібно виконати різні операції над об'єктами, що належать до різних класів.
 
-@startuml
+### Посилання на код
 
-interface Element {
-    + accept(visitor: Visitor)
-}
-
-class ConcreteElementA {
-    + accept(visitor: Visitor)
-    + operationA()
-}
-
-class ConcreteElementB {
-    + accept(visitor: Visitor)
-    + operationB()
-}
-
-interface Visitor {
-    + visitConcreteElementA(element: ConcreteElementA)
-    + visitConcreteElementB(element: ConcreteElementB)
-}
-
-class ConcreteVisitor {
-    + visitConcreteElementA(element: ConcreteElementA)
-    + visitConcreteElementB(element: ConcreteElementB)
-}
-
-Element <|-- ConcreteElementA
-Element <|-- ConcreteElementB
-Visitor <|-- ConcreteVisitor
-
-@enduml
+[Код](Visitor.py)
 
 
+```mermaid
+classDiagram
+    class Visitor {
+        +visitConcreteElementA(element: ConcreteElementA): void
+        +visitConcreteElementB(element: ConcreteElementB): void
+    }
+
+    class ConcreteVisitor1 {
+        +visitConcreteElementA(element: ConcreteElementA): void
+        +visitConcreteElementB(element: ConcreteElementB): void
+    }
+
+    class ConcreteVisitor2 {
+        +visitConcreteElementA(element: ConcreteElementA): void
+        +visitConcreteElementB(element: ConcreteElementB): void
+    }
+
+    class Element {
+        +accept(visitor: Visitor): void
+    }
+
+    class ConcreteElementA {
+        +accept(visitor: Visitor): void
+    }
+
+    class ConcreteElementB {
+        +accept(visitor: Visitor): void
+    }
+
+    Visitor <|-- ConcreteVisitor1
+    Visitor <|-- ConcreteVisitor2
+    Element <|-- ConcreteElementA
+    Element <|-- ConcreteElementB
+    ConcreteElementA --> Visitor
+    ConcreteElementB --> Visitor
+
+```
 
 ---
 
