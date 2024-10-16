@@ -17,7 +17,7 @@ class Subject(ABC):
         pass
 
     @abstractmethod
-    def notify(self) -> None:
+    def notify_all(self) -> None:
         pass
 
 
@@ -43,6 +43,17 @@ class Store(Subject):
         """Повідомляє одного спостерігача одразу після підписки."""
         print(f"Магазин: Повідомлення для {observer.name}...")
         observer.update(self)
+
+    def notify_all(self) -> None:
+        """Повідомляє всіх підписників про нову акцію."""
+        print("Магазин: Відправка розсилки всім підписникам...")
+        for observer in self._observers:
+            observer.update(self)
+
+    def add_offer(self, offer: str) -> None:
+        """Додає нову акцію і повідомляє всіх підписників."""
+        self._offers.append(offer)
+        print(f"Магазин: Додано нову акцію: {offer}")
 
 
 class Observer(ABC):
@@ -78,7 +89,9 @@ def main():
         print("\nВиберіть дію:")
         print("1 - Підписатися на розсилку акцій")
         print("2 - Відписатися від розсилки")
-        print("3 - Вийти")
+        print("3 - Додати нову акцію (для магазину)")
+        print("4 - Відправити розсилку (для магазину)")
+        print("5 - Вийти")
 
         choice = input("Ваш вибір: ")
 
@@ -100,6 +113,13 @@ def main():
                 print(f"{name} не знайдено серед підписників.")
 
         elif choice == "3":
+            new_offer = input("Введіть нову акцію для магазину: ")
+            store.add_offer(new_offer)
+
+        elif choice == "4":
+            store.notify_all()
+
+        elif choice == "5":
             print("Завершення програми.")
             break
 
