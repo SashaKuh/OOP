@@ -1,0 +1,16 @@
+{% extends 'tampl.html' %}
+
+{% block title %}Add news{% endblock %}
+
+{% block content %}
+    <h1>ADD NEWS</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.title }}
+        {{ form.anons }}
+        {{ form.full_text }}  
+        {{ form.date }}
+        <button class="btn btn-success" type="submit">Add news!!!</button>
+    </form>
+
+{% endblock %}
