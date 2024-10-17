@@ -101,7 +101,6 @@
 ```mermaid
 classDiagram
     class Observer {
-        <<interface>>
         +update(temperature: float)
     }
     class WeatherStation {
