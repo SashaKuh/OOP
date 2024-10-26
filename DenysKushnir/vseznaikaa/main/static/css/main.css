@@ -1,0 +1,97 @@
+/* Скидання стилів для зменшення відмінностей між браузерами */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Базові стилі для тіла сторінки */
+body {
+    font-family: Arial, sans-serif;  /* Основний шрифт */
+    line-height: 1.6;                /* Висота рядка для кращої читабельності */
+    background-color: #f4f4f9;       /* Легкий фон для зручності читання */
+    color: #333;                     /* Основний колір тексту */
+    padding: 20px;                   /* Відступи сторінки */
+}
+
+/* Контейнер для центрування вмісту */
+.container {
+    max-width: 1200px;               /* Максимальна ширина */
+    margin: 0 auto;                  /* Центрування */
+    padding: 20px;
+}
+
+/* Стилі для заголовків */
+h1, h2, h3, h4, h5, h6 {
+    color: #222;                     /* Темніший колір для заголовків */
+    margin-bottom: 10px;
+}
+
+/* Основний стиль для параграфів */
+p {
+    margin-bottom: 15px;             /* Відступи для параграфів */
+}
+
+/* Стилі для посилань */
+a {
+    color: #3498db;                  /* Основний колір посилань */
+    text-decoration: none;           /* Видаляємо підкреслення */
+}
+
+a:hover {
+    text-decoration: underline;      /* Підкреслення при наведенні */
+}
+
+/* Основні стилі для кнопок */
+button {
+    background-color: #3498db;       /* Колір фону */
+    color: #fff;                     /* Колір тексту */
+    padding: 10px 20px;              /* Внутрішні відступи */
+    border: none;
+    border-radius: 5px;              /* Закруглені кути */
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;       /* Темніший фон при наведенні */
+}
+
+/* Простий стиль для зображень */
+img {
+    max-width: 100%;                 /* Зображення не виходитиме за межі контейнера */
+    height: auto;
+    display: block;
+}
+
+/* Стилі для навігаційного меню */
+nav ul {
+    list-style-type: none;           /* Видаляємо маркери списків */
+    display: flex;
+    gap: 15px;                       /* Відступи між пунктами меню */
+}
+
+nav ul li a {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Прості стилі для карток */
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Невелика тінь */
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.card p {
+    color: #555;
+}
