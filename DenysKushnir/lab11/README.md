@@ -76,22 +76,9 @@
 
 ```mermaid
 classDiagram
-    HouseBuilder --> House
-
-    class House {
-        +floors: int
-        +rooms: int
-        +garage: bool
-        +__str__(): str
-    }
-
-    class HouseBuilder {
-        -house: House
-        +__init__()
-        +set_floors(floors: int): HouseBuilder
-        +set_rooms(rooms: int): HouseBuilder
-        +set_garage(has_garage: bool): HouseBuilder
-        +build(): House
+    class Singleton {
+        - _instance: Singleton
+        + __new__(): Singleton
     }
 
 ```
