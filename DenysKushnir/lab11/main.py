@@ -1,31 +1,14 @@
-class House:
-    def __init__(self):
-        self.floors = None
-        self.rooms = None
-        self.garage = None
+class Singleton:
+    _instance = None
 
-    def __str__(self):
-        return f"Будинок з {self.floors} поверхами, {self.rooms} кімнатами і {'з гаражем' if self.garage else 'без гаража'}."
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(Singleton, cls).__new__(cls)
+        return cls._instance
 
-class HouseBuilder:
-    def __init__(self):
-        self.house = House()
+# Демонстрація роботи
+singleton1 = Singleton()
+singleton2 = Singleton()
 
-    def set_floors(self, floors):
-        self.house.floors = floors
-        return self
-
-    def set_rooms(self, rooms):
-        self.house.rooms = rooms
-        return self
-
-    def set_garage(self, has_garage):
-        self.house.garage = has_garage
-        return self
-
-    def build(self):
-        return self.house
-
-builder = HouseBuilder()
-house = builder.set_floors(2).set_rooms(4).set_garage(True).build()
-print(house)
+print(singleton1 == singleton2)  # True, обидва посилаються на той самий об'єкт
+print(id(singleton1), id(singleton2))  # Ідентифікатори об'єктів однакові
