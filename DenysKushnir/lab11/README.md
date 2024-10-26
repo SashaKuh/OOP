@@ -81,6 +81,12 @@ classDiagram
         + __new__(): Singleton
     }
 
+    %% Відображення створення екземплярів
+    singleton1: Singleton
+    singleton2: Singleton
+    singleton1 --|> singleton2: create
+
+
 ```
 
 ### Висновок 
