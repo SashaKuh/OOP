@@ -95,22 +95,6 @@
   - `find(value)`: Шукає елемент зі значенням `value` і повертає його, якщо знайдено.
   - `__iter__()`: Повертає екземпляр `LinkedListIterator` для ітерації по елементах списку.
   - `__str__()`: Повертає рядок, що представляє список
-#### Приклад використання:
-
-```python
-linked_list = LinkedList()
-linked_list.append(1)
-linked_list.append(2)
-linked_list.append(3)
-linked_list.prepend(0)
-
-print("Пов'язаний список:", linked_list)  # Виведе: 0 -> 1 -> 2 -> 3
-
-# Ітерація по списку за допомогою окремого ітератора
-for value in linked_list:
-    print("Елемент:", value)
-
-
 
 #### UML-diagram
 
