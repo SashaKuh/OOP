@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Головна сторінка</title>
+</head>
+<body>
+    <h1>Головна сторінка</h1>
+    <p>Перейти на <a href="{% url 'another_page' %}">іншу сторінку</a>.</p>
+    <a href="{% url 'create_post' %}">Додати новий пост</a>
+
+    <h1>Пости</h1>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content }}</p>
+            </li>
+        {% empty %}
+            <li>Поки що немає постів.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

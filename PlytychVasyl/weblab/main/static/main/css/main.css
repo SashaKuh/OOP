@@ -1,0 +1,40 @@
+ul {
+    background-color: black;
+    list-style-type: none;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+a {
+    text-decoration: none;
+}
+
+.set {
+    display: inline-block;
+    color: #007bff;
+    padding: 10px 15px;
+    margin: 5px 0;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+
+button:hover {
+    background-color: #218838;
+}
+
+
+

@@ -1,0 +1,16 @@
+{% extends 'tamplate.html' %}
+
+{% block title %}НОВИНИ{% endblock%}
+
+{% block content %}
+    <p>Головні новини</p><br>
+    
+    {% if news %}
+    
+        {% for el in news %}
+            <p>{{ el.title }}</p>
+            <p>{{ el.anons }}</p>
+        {% endfor %}
+        
+    {% endif %}
+{% endblock%}

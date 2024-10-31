@@ -1,0 +1,16 @@
+{% extends 'tampl.html' %}
+
+{% block title %}add{% endblock%}
+
+{% block content %}
+    <p>NEWS</p><br>
+    
+    {% if news %}
+    
+        {% for el in news %}
+            <p>{{ el.title }}</p>
+            <p>{{ el.anons }}</p>
+        {% endfor %}
+        
+    {% endif %}
+{% endblock%}
