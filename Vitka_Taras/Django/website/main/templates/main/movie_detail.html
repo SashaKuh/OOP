@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ movie.title }} - Деталі</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .movie-detail {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto; /* Центруємо блок */
+            text-align: center;
+        }
+        h1 {
+            margin: 10px 0;
+            font-size: 2em;
+        }
+        p {
+            margin: 5px 0;
+            font-size: 1.1em;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 10px 5px;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="movie-detail">
+        <h1>{{ movie.title }}</h1>
+        <p><strong>Автор:</strong> {{ movie.author }}</p>
+        <p><strong>Рейтинг:</strong> {{ movie.rating }} ⭐</p>
+        <p><strong>Опис:</strong> {{ movie.description }}</p>
+        <a class="btn" href="{% url 'movie_edit' movie.id %}">Редагувати</a>
+        <a class="btn" href="{% url 'movie_delete' movie.id %}">Видалити</a>
+        <a class="btn" href="{% url 'movie_list' %}">Назад до списку</a>
+    </div>
+</body>
+</html>

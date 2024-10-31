@@ -1,0 +1,103 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    background-color: #007bff;
+    transition: background-color 0.3s;
+}
+
+a.btn:hover {
+    background-color: #0056b3;
+}
+
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.movie-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.movie-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.movie-author {
+    font-size: 1em;
+    color: #555;
+}
+
+.movie-rating {
+    color: #f39c12;
+    font-size: 1.2em;
+}
+
+.movie-description {
+    font-size: 0.9em;
+    margin: 10px 0;
+}
+
+.details-btn {
+    display: block;
+    margin: 10px auto;
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.details-btn:hover {
+    background-color: #218838;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #dc3545;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #c82333;
+}

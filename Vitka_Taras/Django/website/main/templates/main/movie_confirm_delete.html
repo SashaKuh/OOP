@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Підтвердження видалення</title>
+</head>
+<body>
+    <h1>Видалити фільм</h1>
+    <p>Ви впевнені, що хочете видалити "{{ movie.title }}"?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Так, видалити</button>
+        <a href="{% url 'movie_list' %}">Скасувати</a>
+    </form>
+</body>
+</html>

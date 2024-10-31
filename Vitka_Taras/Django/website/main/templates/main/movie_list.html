@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Список фільмів</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .add-movie-btn {
+            float: right; /* Вирівнюємо кнопку вправо */
+            margin-top: -57px; /* Зменшуємо відступ зверху для кнопки */
+            margin-bottom: -95px;
+            background-color: #007bff; /* Синій колір */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .add-movie-btn:hover {
+            background-color: #0056b3; /* Темніший синій при наведенні */
+        }
+        .movie-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto; /* Центруємо контейнер */
+        }
+        .movie-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .movie-card:hover {
+            transform: scale(1.05);
+        }
+        .movie-card h2 {
+            font-size: 1.5em;
+            margin: 0;
+        }
+        .movie-card p {
+            margin: 5px 0;
+        }
+        .movie-card .rating {
+            color: gold;
+        }
+        .movie-card .description {
+            font-size: 0.9em;
+            color: #666;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3; /* Кількість рядків для показу */
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Список фільмів</h1>
+    <a class="add-movie-btn" href="{% url 'movie_create' %}">Додати фільм</a>
+    <div class="movie-container">
+        {% for movie in movies %}
+            <div class="movie-card">
+                <h2>{{ movie.title }}</h2>
+                <p><strong>Автор:</strong> {{ movie.author }}</p>
+                <p class="rating">Рейтинг: {{ movie.rating }} ⭐</p>
+                <p class="description">{{ movie.description|truncatewords:20 }}</p> <!-- Короткий опис -->
+                <a class="btn" href="{% url 'movie_detail' movie.id %}">Детальніше</a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
