@@ -55,8 +55,8 @@
 
 ### Посилання на код
 
-[Код](before.py)
-[Код](after.py)
+[До](before.py)
+[Після](after.py)
 
 
 
