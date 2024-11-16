@@ -29,39 +29,30 @@ for op in ['+','-','*','/']:
 
 # Чистий код після рефакторингу
 class Calculator:
-    """Клас для виконання базових математичних операцій"""
     
     @staticmethod
     def add(x: float, y: float) -> float:
-        """Додавання двох чисел"""
         return x + y
     
     @staticmethod
     def subtract(x: float, y: float) -> float:
-        """Віднімання двох чисел"""
         return x - y
     
     @staticmethod
     def multiply(x: float, y: float) -> float:
-        """Множення двох чисел"""
         return x * y
     
     @staticmethod
     def divide(x: float, y: float) -> float | str:
-        """Ділення двох чисел"""
         if y != 0:
             return x / y
         return "Помилка: ділення на нуль"
 
-class CalculatorDisplay:
-    """Клас для відображення результатів обчислень"""
-    
+class CalculatorDisplay:    
     @staticmethod
     def show_result(x: float, y: float, operation: str, result: float | str):
-        """Відображення результату операції"""
         print(f"{x} {operation} {y} = {result}")
 
-# Демонстрація роботи
 if __name__ == "__main__":
     calculator = Calculator()
     display = CalculatorDisplay()
@@ -69,22 +60,17 @@ if __name__ == "__main__":
     # Тестові числа
     x, y = 10, 5
     
-    # Додавання
     result = calculator.add(x, y)
     display.show_result(x, y, '+', result)
     
-    # Віднімання
     result = calculator.subtract(x, y)
     display.show_result(x, y, '-', result)
 
-        # Множення
     result = calculator.multiply(x, y)
     display.show_result(x, y, '*', result)
     
-    # Ділення
     result = calculator.divide(x, y)
     display.show_result(x, y, '/', result)
     
-    # Тест ділення на нуль
     result = calculator.divide(x, 0)
     display.show_result(x, 0, '/', result)
