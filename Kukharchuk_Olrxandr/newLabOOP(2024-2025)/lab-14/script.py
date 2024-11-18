@@ -5,9 +5,11 @@ class Students:
         self.students = []
 
     def add_student(self, name, grade):
+        ##Використання словника замість класу для студентів
         self.students.append({"name": name, "grade": grade})
 
     def remove_student(self, name):
+        ##Видалення студента через цикл з модифікацією списку
         for student in self.students:
             if student["name"] == name:
                 self.students.remove(student)
