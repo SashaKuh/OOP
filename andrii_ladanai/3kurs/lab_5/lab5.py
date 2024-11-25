@@ -1,55 +1,4 @@
-# Приклад 1: Брудний код - довгий метод з поганими іменами змінних
-def calc(x, y, op):
-    if op == 1:
-        r = x + y
-        return r
-    elif op == 2:
-        r = x - y
-        return r
-    elif op == 3:
-        r = x * y
-        return r
-    elif op == 4:
-        if y == 0:
-            return "Error"
-        r = x / y
-        return r
-    else:
-        return "Invalid operation"
-
-# Рефакторинг: Розділення на менші методи, кращі імена, використання enum
-from enum import Enum
-
-class Operation(Enum):
-    ADD = 1
-    SUBTRACT = 2
-    MULTIPLY = 3
-    DIVIDE = 4
-
-def calculate(first_number: float, second_number: float, operation: Operation) -> float:
-    operations = {
-        Operation.ADD: lambda: add(first_number, second_number),
-        Operation.SUBTRACT: lambda: subtract(first_number, second_number),
-        Operation.MULTIPLY: lambda: multiply(first_number, second_number),
-        Operation.DIVIDE: lambda: divide(first_number, second_number)
-    }
-    return operations.get(operation, lambda: "Invalid operation")()
-
-def add(a: float, b: float) -> float:
-    return a + b
-
-def subtract(a: float, b: float) -> float:
-    return a - b
-
-def multiply(a: float, b: float) -> float:
-    return a * b
-
-def divide(a: float, b: float) -> float:
-    if b == 0:
-        raise ValueError("Division by zero is not allowed")
-    return a / b
-
-# Приклад 2: Брудний код - великий клас з поганою зв'язністю
+# Приклад: Брудний код - великий клас з поганою зв'язністю
 class UserManager:
     def __init__(self):
         self.users = []
@@ -123,10 +72,6 @@ class RefactoredUserManager:
 
 # Приклад використання
 if __name__ == "__main__":
-    # Тестування калькулятора
-    print("Брудний калькулятор:", calc(10, 5, 1))
-    print("Чистий калькулятор:", calculate(10, 5, Operation.ADD))
-    
     # Тестування менеджера користувачів
     dirty_manager = UserManager()
     clean_manager = RefactoredUserManager()
