@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Друга сторінка</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .back-link {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Друга сторінка</h1>
+    <p>Ви успішно перейшли на другу сторінку!</p>
+    <a href="{% url 'home' %}" class="back-link">← Повернутися на головну</a>
+</body>
+</html> 
