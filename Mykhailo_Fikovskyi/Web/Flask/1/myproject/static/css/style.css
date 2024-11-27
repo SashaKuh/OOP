@@ -1,0 +1,88 @@
+/* Базові стилі */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Контейнер */
+.container {
+    display: flex;
+    flex: 1;
+}
+
+/* Ліва панель */
+aside {
+    background: #2c3e50;
+    color: #fff;
+    width: 250px;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+aside h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+}
+
+aside nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+aside nav ul li {
+    margin: 15px 0;
+}
+
+aside nav ul li a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-size: 1.2em;
+    padding: 10px 15px;
+    display: block;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+aside nav ul li a:hover {
+    background: #34495e;
+}
+
+/* Основний контент */
+main {
+    flex: 1;
+    padding: 40px;
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+main h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+main p {
+    font-size: 1.2em;
+    line-height: 1.8;
+}
+
+/* Футер */
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background: #2c3e50;
+    color: #ecf0f1;
+    font-size: 0.9em;
+    margin-top: auto;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}

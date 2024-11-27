@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Навчальний портал{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <h2>Меню</h2>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Головна</a></li>
+                    <li><a href="{{ url_for('programming') }}">Програмування</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+</body>
+</html>

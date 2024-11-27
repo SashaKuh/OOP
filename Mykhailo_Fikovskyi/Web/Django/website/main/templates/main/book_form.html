@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Додати нову книгу</h1>
+        <form method="POST" id="bookForm">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.title.id_for_label }}">Назва книги:</label>
+                {{ form.title }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.author.id_for_label }}">Автор:</label>
+                {{ form.author }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.published_date.id_for_label }}">Дата публікації:</label>
+                {{ form.published_date }}
+            </div>
+            <button type="submit" class="btn">Зберегти</button>
+        </form>
+        <a href="{% url 'book_list' %}" class="btn">Назад</a>
+    </div>
+</body>
+</html>

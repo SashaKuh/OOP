@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
+</head>
+<body>
+    <h1>Книги</h1>
+    <div class="menu">
+        <a href="{% url 'book_create' %}" class="btn">Додати нову книгу</a>
+        <a href="{% url 'about' %}" class="btn">Про нас</a>
+    </div>
+    <div class="book-list">
+        {% for book in books %}
+            <div class="book-card">
+                <h2>{{ book.title }}</h2>
+                <p><strong>Автор:</strong> {{ book.author }}</p>
+                <p><strong>Дата публікації:</strong> {{ book.published_date }}</p>
+                <a href="{% url 'book_edit' book.pk %}" class="btn">Редагувати</a>
+                <a href="{% url 'book_delete' book.pk %}" class="btn">Видалити</a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

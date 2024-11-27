@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Про нас</h1>
+        <p>Вітаємо на сайті з додавання книг</p>
+        <p>Дякую за відвідання нашого сайту!</p>
+        <a href="{% url 'book_list' %}" class="btn">Назад до списку книг</a>
+    </div>
+</body>
+</html>
